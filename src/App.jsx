@@ -4,7 +4,8 @@ import Navbar from "./components/Navbar";
 import Users from "./components/Users";
 import Search from "./components/Search";
 import Edit from "./components/Edit";
-import Delete from "./components/Delete"; // Import the Delete component
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const [editingUserId, setEditingUserId] = useState(null);
@@ -29,6 +30,7 @@ function App() {
       <Navbar />
       <Search />
       <Users openEditModal={openEditModal} openDeleteModal={openDeleteModal} />
+      <ToastContainer />
     </div>
   );
 }

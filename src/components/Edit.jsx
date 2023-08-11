@@ -19,6 +19,7 @@ const Edit = ({ user, onClose, onSave }) => {
     const editedNames = JSON.parse(localStorage.getItem("editedNames")) || {};
     editedNames[user.user_id] = editedFullName;
     localStorage.setItem("editedNames", JSON.stringify(editedNames));
+    toast.success("User edited successfully!");
   };
   return (
     <div className="fixed inset-0 flex bg-[rgba(0,0,0,0.5)] z-20 h-screen justify-center items-center ">

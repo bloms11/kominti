@@ -5,6 +5,7 @@ import { CiEdit } from "react-icons/ci";
 import { BsTrash } from "react-icons/bs";
 import { useDrag, useDrop } from "react-dnd";
 import Edit from "./Edit";
+import { toast } from "react-toastify";
 
 const UserItem = ({ user, index, moveUser, editUser, deleteUser }) => {
   const [, ref] = useDrag({
@@ -24,6 +25,7 @@ const UserItem = ({ user, index, moveUser, editUser, deleteUser }) => {
     if (window.confirm(`Are you sure you want to delete ${user.fullname}?`)) {
       deleteUser(user.user_id);
     }
+    toast.success("User deleted successfully!");
   };
 
   return (
@@ -123,6 +125,7 @@ const Users = () => {
       JSON.stringify(updatedUsers.map((user) => user.user_id))
     );
     setIsEditing(false);
+    toast.success("User edited successfully!");
   };
   return (
     <div className="flex flex-col w-[94%] mx-auto ">
